@@ -7,9 +7,10 @@
   <style>
     body {
       margin: 0;
-      height: 100vh;
+      min-height: 100vh;
       display: flex;
       flex-direction: column;
+      align-items: center;
       font-family: Arial, sans-serif;
       background-color: white;
       transition: background-color 0.4s ease;
@@ -24,54 +25,44 @@
 
     /* Title */
     .page-title {
-      margin: 0;
-      padding: 6px 0;
-      font-size: 32px;
+      margin: 20px 0;
+      font-size: 48px;
       color: #FC6A03;
       font-weight: bold;
       text-align: center;
     }
 
-    /* Reload icon */
-    .reload-icon {
-      position: fixed;
-      top: 10px;
-      right: 20px;
-      font-size: 100px;
-      cursor: pointer;
-      display: none;
-      user-select: none;
-    }
-
-    /* Main content */
-    .main-content {
+    /* Main content wrapper (title + buttons + logo) */
+    .content {
       flex: 1;
+      width: 100%;
       display: flex;
-      justify-content: center;
+      flex-direction: column;
       align-items: center;
+      justify-content: center;
+      gap: 30px;
     }
 
-    /* Button container */
+    /* Buttons */
     .button-container {
       display: flex;
       flex-direction: column;
-      gap: 20px;
+      gap: 24px;
     }
 
-    /* Common button style */
     button {
-      width: 220px;
-      height: 70px;
-      font-size: 22px;
+      width: 280px;
+      height: 90px;
+      font-size: 28px;
       font-weight: bold;
       border: none;
-      border-radius: 12px;
+      border-radius: 16px;
       cursor: pointer;
       color: white;
     }
 
-    .red {
-      background-color: #E3242B;
+    .green {
+      background-color: #43A047;
     }
 
     .amber {
@@ -79,27 +70,42 @@
       color: black;
     }
 
-    .green {
-      background-color: #43A047;
+    .red {
+      background-color: #E3242B;
     }
 
     /* Logo */
-    .logo {
-      margin-bottom: 50px;
-      text-align: center;
-    }
-
     .logo img {
-      width: 150px;
+      width: 180px;
       height: auto;
     }
 
-    /* Mobile optimization */
+    /* Reload button (centered) */
+    .reload-icon {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 120px;
+      cursor: pointer;
+      display: none;
+      user-select: none;
+    }
+
+    /* Extra mobile boost */
     @media (max-width: 480px) {
+      .page-title {
+        font-size: 36px;
+      }
+
       button {
-        width: 260px;
-        height: 80px;
-        font-size: 24px;
+        width: 90vw;
+        height: 100px;
+        font-size: 30px;
+      }
+
+      .logo img {
+        width: 160px;
       }
     }
   </style>
@@ -110,35 +116,31 @@
   <!-- Top Line -->
   <div class="top-line"></div>
 
-  <!-- Title -->
-  <h1 class="page-title" id="pageTitle">RE(AI)MAGINING FEEDBACK</h1>
+  <!-- Content -->
+  <div class="content">
+    <h1 class="page-title" id="pageTitle">Re(AI)magining Feedback</h1>
 
-  <!-- Reload Icon -->
-  <div class="reload-icon" id="reloadIcon" onclick="resetPage()">⟳</div>
-
-  <!-- Buttons -->
-  <div class="main-content">
     <div class="button-container" id="colorButtons">
       <button class="green" onclick="changeColor('green')">Green</button>
       <button class="amber" onclick="changeColor('amber')">Amber</button>
       <button class="red" onclick="changeColor('red')">Red</button>
     </div>
+
+    <div class="logo" id="logoContainer">
+      <img src="src/images/logo.png" alt="Logo">
+    </div>
   </div>
 
-  <!-- Logo -->
-  <div class="logo" id="logoContainer">
-    <img src="src/images/logo.png" alt="Logo">
-  </div>
+  <!-- Reload -->
+  <div class="reload-icon" id="reloadIcon" onclick="resetPage()">⟳</div>
 
   <script>
     function changeColor(color) {
       if (color === 'red') {
         document.body.style.backgroundColor = '#E3242B';
-      } 
-      else if (color === 'amber') {
+      } else if (color === 'amber') {
         document.body.style.backgroundColor = '#FFFF00';
-      } 
-      else if (color === 'green') {
+      } else if (color === 'green') {
         document.body.style.backgroundColor = '#03C04A';
       }
 
