@@ -37,7 +37,7 @@
       position: fixed;
       top: 10px;
       right: 20px;
-      font-size: 32px;
+      font-size: 100px;
       cursor: pointer;
       display: none;
       user-select: none;
@@ -85,7 +85,7 @@
 
     /* Logo */
     .logo {
-      margin-bottom: 20px;
+      margin-bottom: 50px;
       text-align: center;
     }
 
@@ -126,7 +126,7 @@
   </div>
 
   <!-- Logo -->
-  <div class="logo">
+  <div class="logo" id="logoContainer">
     <img src="src/images/logo.png" alt="Logo">
   </div>
 
@@ -134,14 +134,17 @@
     function changeColor(color) {
       if (color === 'red') {
         document.body.style.backgroundColor = '#E3242B';
-      } else if (color === 'amber') {
+      } 
+      else if (color === 'amber') {
         document.body.style.backgroundColor = '#FFFF00';
-      } else if (color === 'green') {
+      } 
+      else if (color === 'green') {
         document.body.style.backgroundColor = '#03C04A';
       }
 
       document.getElementById('colorButtons').style.display = 'none';
       document.getElementById('pageTitle').style.display = 'none';
+      document.getElementById('logoContainer').style.display = 'none';
       document.getElementById('reloadIcon').style.display = 'block';
     }
 
@@ -149,6 +152,7 @@
       document.body.style.backgroundColor = 'white';
       document.getElementById('colorButtons').style.display = 'flex';
       document.getElementById('pageTitle').style.display = 'block';
+      document.getElementById('logoContainer').style.display = 'block';
       document.getElementById('reloadIcon').style.display = 'none';
     }
   </script>
