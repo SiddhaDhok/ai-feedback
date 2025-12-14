@@ -24,44 +24,48 @@
 
     /* Title */
     .page-title {
-      margin: 0;                   /* remove default spacing */
-      padding: 4px 0;
+      margin: 0;
+      padding: 6px 0;
       font-size: 32px;
-      color: #FC6A03;	
+      color: #FC6A03;
       font-weight: bold;
       text-align: center;
     }
 
-    /* Reload icon (top-right) */
+    /* Reload icon */
     .reload-icon {
       position: fixed;
       top: 10px;
       right: 20px;
-      font-size: 26px;
+      font-size: 32px;
       cursor: pointer;
       display: none;
       user-select: none;
     }
 
-    /* Main content container for buttons (centered) */
+    /* Main content */
     .main-content {
-      flex: 1;                     /* takes remaining vertical space */
+      flex: 1;
       display: flex;
-      justify-content: center;      /* horizontal center */
-      align-items: center;          /* vertical center */
+      justify-content: center;
+      align-items: center;
     }
 
     /* Button container */
     .button-container {
       display: flex;
+      flex-direction: column;
       gap: 20px;
     }
 
+    /* Common button style */
     button {
-      padding: 15px 30px;
-      font-size: 16px;
+      width: 220px;
+      height: 70px;
+      font-size: 22px;
+      font-weight: bold;
       border: none;
-      border-radius: 8px;
+      border-radius: 12px;
       cursor: pointer;
       color: white;
     }
@@ -71,26 +75,32 @@
     }
 
     .amber {
-      background-color: #ffb300;
+      background-color: #FFB300;
       color: black;
     }
 
     .green {
-      background-color: #43a047;
+      background-color: #43A047;
     }
 
-    /* Logo at bottom */
+    /* Logo */
     .logo {
-      margin-top: auto;            
       margin-bottom: 20px;
-      font-weight: bold;
-      font-size: 18px;
       text-align: center;
     }
 
     .logo img {
-      width: 150px;  /* adjust logo size */
+      width: 150px;
       height: auto;
+    }
+
+    /* Mobile optimization */
+    @media (max-width: 480px) {
+      button {
+        width: 260px;
+        height: 80px;
+        font-size: 24px;
+      }
     }
   </style>
 </head>
@@ -106,30 +116,27 @@
   <!-- Reload Icon -->
   <div class="reload-icon" id="reloadIcon" onclick="resetPage()">⟳</div>
 
-  <!-- Main content container for centering buttons -->
+  <!-- Buttons -->
   <div class="main-content">
-    <!-- Color Buttons -->
     <div class="button-container" id="colorButtons">
-      <button class="red" onclick="changeColor('red')">Red</button>
-      <button class="amber" onclick="changeColor('amber')">Amber</button>
       <button class="green" onclick="changeColor('green')">Green</button>
+      <button class="amber" onclick="changeColor('amber')">Amber</button>
+      <button class="red" onclick="changeColor('red')">Red</button>
     </div>
   </div>
 
   <!-- Logo -->
   <div class="logo">
-    <img src="src/images/logo.png" alt="Logo" id="logoImage">
+    <img src="src/images/logo.png" alt="Logo">
   </div>
 
   <script>
     function changeColor(color) {
       if (color === 'red') {
         document.body.style.backgroundColor = '#E3242B';
-      } 
-      else if (color === 'amber') {
+      } else if (color === 'amber') {
         document.body.style.backgroundColor = '#FFFF00';
-      } 
-      else if (color === 'green') {
+      } else if (color === 'green') {
         document.body.style.backgroundColor = '#03C04A';
       }
 
