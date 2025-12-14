@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Color Change Page</title>
+
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      font-family: Arial, sans-serif;
+      background-color: white;
+      transition: background-color 0.4s ease;
+    }
+
+    /* Top line */
+    .top-line {
+      width: 100%;
+      height: 6px;
+      background-color: black;
+    }
+
+    /* Title */
+    .page-title {
+      margin: 0;                   /* remove default spacing */
+      padding: 4px 0;
+      font-size: 32px;
+      color: #FC6A03;	
+      font-weight: bold;
+      text-align: center;
+    }
+
+    /* Reload icon (top-right) */
+    .reload-icon {
+      position: fixed;
+      top: 10px;
+      right: 20px;
+      font-size: 26px;
+      cursor: pointer;
+      display: none;
+      user-select: none;
+    }
+
+    /* Main content container for buttons (centered) */
+    .main-content {
+      flex: 1;                     /* takes remaining vertical space */
+      display: flex;
+      justify-content: center;      /* horizontal center */
+      align-items: center;          /* vertical center */
+    }
+
+    /* Button container */
+    .button-container {
+      display: flex;
+      gap: 20px;
+    }
+
+    button {
+      padding: 15px 30px;
+      font-size: 16px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      color: white;
+    }
+
+    .red {
+      background-color: #E3242B;
+    }
+
+    .amber {
+      background-color: #ffb300;
+      color: black;
+    }
+
+    .green {
+      background-color: #43a047;
+    }
+
+    /* Logo at bottom */
+    .logo {
+      margin-top: auto;            
+      margin-bottom: 20px;
+      font-weight: bold;
+      font-size: 18px;
+      text-align: center;
+    }
+
+    .logo img {
+      width: 150px;  /* adjust logo size */
+      height: auto;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Top Line -->
+  <div class="top-line"></div>
+
+  <!-- Title -->
+  <h1 class="page-title" id="pageTitle">RE(AI)MAGINING FEEDBACK</h1>
+
+  <!-- Reload Icon -->
+  <div class="reload-icon" id="reloadIcon" onclick="resetPage()">⟳</div>
+
+  <!-- Main content container for centering buttons -->
+  <div class="main-content">
+    <!-- Color Buttons -->
+    <div class="button-container" id="colorButtons">
+      <button class="red" onclick="changeColor('red')">Red</button>
+      <button class="amber" onclick="changeColor('amber')">Amber</button>
+      <button class="green" onclick="changeColor('green')">Green</button>
+    </div>
+  </div>
+
+  <!-- Logo -->
+  <div class="logo">
+    <img src="https://raw.githubusercontent.com/yourusername/your-repo/main/logo.png" 
+         alt="Logo" 
+         id="logoImage">
+    <!-- Replace the above src with your actual logo URL in GitHub -->
+  </div>
+
+  <script>
+    function changeColor(color) {
+      if (color === 'red') {
+        document.body.style.backgroundColor = '#E3242B';
+      } 
+      else if (color === 'amber') {
+        document.body.style.backgroundColor = '#FFFF00';
+      } 
+      else if (color === 'green') {
+        document.body.style.backgroundColor = '#03C04A';
+      }
+
+      document.getElementById('colorButtons').style.display = 'none';
+      document.getElementById('pageTitle').style.display = 'none';
+      document.getElementById('reloadIcon').style.display = 'block';
+    }
+
+    function resetPage() {
+      document.body.style.backgroundColor = 'white';
+      document.getElementById('colorButtons').style.display = 'flex';
+      document.getElementById('pageTitle').style.display = 'block';
+      document.getElementById('reloadIcon').style.display = 'none';
+    }
+  </script>
+
+</body>
+</html>
